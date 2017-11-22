@@ -22,4 +22,8 @@ class Bank() {
         currentAmount += amount
         return currentAmount
     }
+
+    fun getCurrentBalance(): Double {
+        return currentAmount
+    }
 }
