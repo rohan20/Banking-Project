@@ -4,30 +4,35 @@ package main.kotlin
 Created by rohan on 20/11/17  
 */
 
+val WITHDRAW = 1
+val DEPOSIT = 2
+val EXIT = 3
+
+var userChoice = 0
+
 fun main(args: Array<String>) {
 
-    val WITHDRAW = 1
-    val DEPOSIT = 2
-    val EXIT = 3
 
     println("Welcome to my bank")
-    var userChoice: Int = 0
-
     val bank: Bank = Bank()
 
     while (userChoice != EXIT) {
-        showChoices()
-        displayCurrentBalance(bank)
-        userChoice = readLine()!!.toInt()
-
-        if (userChoice == WITHDRAW) {
-            bank.withdrawAmount(withdraw())
-        } else if (userChoice == DEPOSIT) {
-            bank.depositAmount(deposit())
-        }
-
-        displayCurrentBalance(bank)
+        performBankTask(bank);
     }
+}
+
+fun performBankTask(bank: Bank) {
+    showChoices()
+    displayCurrentBalance(bank)
+    userChoice = readLine()!!.toInt()
+
+    if (userChoice == WITHDRAW) {
+        bank.withdrawAmount(withdraw())
+    } else if (userChoice == DEPOSIT) {
+        bank.depositAmount(deposit())
+    }
+
+    displayCurrentBalance(bank)
 }
 
 fun withdraw(): Double {
