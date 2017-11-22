@@ -13,17 +13,31 @@ fun main(args: Array<String>) {
     println("Welcome to my bank")
     var userChoice: Int = 0
 
+    val bank: Bank = Bank()
+
     while (userChoice != EXIT) {
         showChoices()
+        displayCurrentBalance(bank)
         userChoice = readLine()!!.toInt()
 
         if (userChoice == WITHDRAW) {
-
+            bank.withdrawAmount(withdraw())
         } else if (userChoice == DEPOSIT) {
-
+            bank.depositAmount(deposit())
         }
 
+        displayCurrentBalance(bank)
     }
+}
+
+fun withdraw(): Double {
+    print("How much do you want to withdraw?: ")
+    return readLine()!!.toDouble()
+}
+
+fun deposit(): Double {
+    print("How much do you want to deposit?: ")
+    return readLine()!!.toDouble()
 }
 
 fun showChoices() {
@@ -31,4 +45,9 @@ fun showChoices() {
     println("1. Withdraw")
     println("2. Deposit")
     println("3. Exit")
+}
+
+fun displayCurrentBalance(bank: Bank) {
+    println("Current Balance: " + bank.getCurrentBalance())
+    println()
 }
