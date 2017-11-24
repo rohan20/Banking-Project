@@ -22,9 +22,12 @@ fun main(args: Array<String>) {
     println("Greater than 65 count: $count")
 
     val passingGrades = grades.filter { grade -> grade > 65 }
-    passingGrades.forEach({
-        passingGrade -> println(passingGrade)
+    passingGrades.forEach({ passingGrade ->
+        println(passingGrade)
     })
+
+    grades.swap(1, 4)
+    println(grades)
 
 //    println("Welcome to my bank")
 //    val bank: Bank = Bank()
@@ -34,6 +37,12 @@ fun main(args: Array<String>) {
 //    }
 
 //    checkingNulls()
+}
+
+fun MutableList<Int>.swap(firstIndex: Int, secondIndex: Int) {
+    var tempIndex = this[firstIndex]
+    this[firstIndex] = this[secondIndex]
+    this[secondIndex] = tempIndex
 }
 
 fun performBankTask(bank: Bank) {
