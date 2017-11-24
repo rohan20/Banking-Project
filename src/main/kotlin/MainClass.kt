@@ -12,13 +12,24 @@ var userChoice = 0
 
 fun main(args: Array<String>) {
 
+    val grades = mutableListOf<Int>(74, 12, 91, 88, 72, 84, 66, 65, 11)
 
-    println("Welcome to my bank")
-    val bank: Bank = Bank()
+    val count = grades.count({ item ->
+        item > 65
+    })
+    println("Greater than 65 count: $count")
 
-    while (userChoice != EXIT) {
-        performBankTask(bank);
-    }
+    val passingGrades = grades.filter { grade -> grade > 65 }
+    passingGrades.forEach({
+        passingGrade -> println(passingGrade)
+    })
+
+//    println("Welcome to my bank")
+//    val bank: Bank = Bank()
+//
+//    while (userChoice != EXIT) {
+//        performBankTask(bank);
+//    }
 
 //    checkingNulls()
 }
