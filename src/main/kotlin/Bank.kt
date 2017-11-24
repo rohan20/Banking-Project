@@ -1,5 +1,6 @@
 package main.kotlin
 
+import java.text.SimpleDateFormat
 import java.util.*
 
 /*
@@ -31,6 +32,7 @@ class Bank() {
 
     fun getCurrentDate(currentTimeInMillis: Long): String {
         val date = Date(currentTimeInMillis)
-        return date.toString()
+        val dateFormatter = SimpleDateFormat("dd MMM y, h:mm a")
+        return dateFormatter.format(date)
     }
 }
