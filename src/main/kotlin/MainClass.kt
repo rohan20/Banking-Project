@@ -56,10 +56,10 @@ fun showChoices() {
 
 fun displayCurrentBalance(bank: Bank) {
     println("Current Balance: " + bank.getCurrentBalance())
-    println()
+    println("Transaction date: " + bank.getCurrentDate(System.currentTimeMillis()))
 }
 
-fun checkingNulls(){
+fun checkingNulls() {
     val listOfBanks = listOf(Bank(), Bank(), null, Bank())
     listOfBanks.forEach { bank ->
         val money = bank?.currentAmount
