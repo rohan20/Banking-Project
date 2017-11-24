@@ -14,6 +14,8 @@ fun main(args: Array<String>) {
 
     val grades = mutableListOf<Int>(74, 12, 91, 88, 72, 84, 66, 65, 11)
 
+    println("Average grade: ${grades.average()}")
+
     val count = grades.count({ item ->
         item > 65
     })
